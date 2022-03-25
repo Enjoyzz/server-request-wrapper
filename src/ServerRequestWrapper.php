@@ -40,34 +40,52 @@ final class ServerRequestWrapper
         $this->filesData = new FilesCollection($request->getUploadedFiles());
     }
 
-    public function getQueryData(): Collection
+    public function getQueryData($key = null, $defaults = null): Collection
     {
-        return $this->queryData;
+        if ($key == null){
+            return $this->queryData;
+        }
+        return $this->queryData->get($key, $defaults);
     }
 
-    public function getPostData(): Collection
+    public function getPostData($key = null, $defaults = null): Collection
     {
-        return $this->postData;
+        if ($key == null){
+            return $this->postData;
+        }
+        return $this->postData->get($key, $defaults);
     }
 
-    public function getCookieData(): Collection
+    public function getCookieData($key = null, $defaults = null): Collection
     {
-        return $this->cookieData;
+        if ($key == null){
+            return $this->cookieData;
+        }
+        return $this->cookieData->get($key, $defaults);
     }
 
-    public function getServerData(): Collection
+    public function getServerData($key = null, $defaults = null): Collection
     {
-        return $this->serverData;
+        if ($key == null){
+            return $this->serverData;
+        }
+        return $this->serverData->get($key, $defaults);
     }
 
-    public function getFilesData(): FilesCollection
+    public function getFilesData($key = null): FilesCollection
     {
-        return $this->filesData;
+        if ($key == null){
+            return $this->filesData;
+        }
+        return $this->filesData->get($key);
     }
 
-    public function getAttributesData(): Collection
+    public function getAttributesData($key = null, $defaults = null): Collection
     {
-        return $this->attributesData;
+        if ($key == null){
+            return $this->attributesData;
+        }
+        return $this->attributesData->get($key, $defaults);
     }
 
 
