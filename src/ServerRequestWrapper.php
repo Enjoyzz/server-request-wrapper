@@ -3,12 +3,11 @@
 declare(strict_types=1);
 
 
-namespace Enjoys\ServerRequestWrapper;
-
+namespace Enjoys;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-final class ServerRequest
+final class ServerRequestWrapper
 {
 
     private Collection $queryData;
@@ -24,7 +23,7 @@ final class ServerRequest
         $this->setRequest($request);
     }
 
-    public function setRequest(ServerRequestInterface $request): ServerRequest
+    public function setRequest(ServerRequestInterface $request): ServerRequestWrapper
     {
         $this->request = $request;
         $this->mappingData($request);

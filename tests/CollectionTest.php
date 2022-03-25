@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Enjoys\ServerRequestWrapper\Collection;
+use Enjoys\Collection;
 use PHPUnit\Framework\TestCase;
 
 class CollectionTest extends TestCase

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-use Enjoys\ServerRequestWrapper\FilesCollection;
+use Enjoys\FilesCollection;
 use PHPUnit\Framework\TestCase;
 
 class FilesCollectionTest extends TestCase
