@@ -18,11 +18,18 @@ final class ServerRequestWrapper
     private Collection $attributesData;
     private ServerRequestInterface $request;
 
+    /**
+     * @param ServerRequestInterface $request
+     */
     public function __construct(ServerRequestInterface $request)
     {
         $this->setRequest($request);
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @return $this
+     */
     public function setRequest(ServerRequestInterface $request): ServerRequestWrapper
     {
         $this->request = $request;
@@ -30,6 +37,10 @@ final class ServerRequestWrapper
         return $this;
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @return void
+     */
     private function mappingData(ServerRequestInterface $request)
     {
         $this->queryData = new Collection($request->getQueryParams());
@@ -40,7 +51,12 @@ final class ServerRequestWrapper
         $this->filesData = new FilesCollection($request->getUploadedFiles());
     }
 
-    public function getQueryData($key = null, $defaults = null): Collection
+    /**
+     * @param $key
+     * @param $defaults
+     * @return Collection|mixed|null
+     */
+    public function getQueryData($key = null, $defaults = null)
     {
         if ($key == null){
             return $this->queryData;
@@ -48,7 +64,12 @@ final class ServerRequestWrapper
         return $this->queryData->get($key, $defaults);
     }
 
-    public function getPostData($key = null, $defaults = null): Collection
+    /**
+     * @param $key
+     * @param $defaults
+     * @return Collection|mixed|null
+     */
+    public function getPostData($key = null, $defaults = null)
     {
         if ($key == null){
             return $this->postData;
@@ -56,7 +77,12 @@ final class ServerRequestWrapper
         return $this->postData->get($key, $defaults);
     }
 
-    public function getCookieData($key = null, $defaults = null): Collection
+    /**
+     * @param $key
+     * @param $defaults
+     * @return Collection|mixed|null
+     */
+    public function getCookieData($key = null, $defaults = null)
     {
         if ($key == null){
             return $this->cookieData;
@@ -64,7 +90,12 @@ final class ServerRequestWrapper
         return $this->cookieData->get($key, $defaults);
     }
 
-    public function getServerData($key = null, $defaults = null): Collection
+    /**
+     * @param $key
+     * @param $defaults
+     * @return Collection|mixed|null
+     */
+    public function getServerData($key = null, $defaults = null)
     {
         if ($key == null){
             return $this->serverData;
@@ -72,6 +103,10 @@ final class ServerRequestWrapper
         return $this->serverData->get($key, $defaults);
     }
 
+    /**
+     * @param $key
+     * @return FilesCollection
+     */
     public function getFilesData($key = null): FilesCollection
     {
         if ($key == null){
@@ -80,7 +115,12 @@ final class ServerRequestWrapper
         return $this->filesData->get($key);
     }
 
-    public function getAttributesData($key = null, $defaults = null): Collection
+    /**
+     * @param $key
+     * @param $defaults
+     * @return Collection|mixed|null
+     */
+    public function getAttributesData($key = null, $defaults = null)
     {
         if ($key == null){
             return $this->attributesData;
@@ -89,6 +129,9 @@ final class ServerRequestWrapper
     }
 
 
+    /**
+     * @return ServerRequestInterface
+     */
     public function getRequest(): ServerRequestInterface
     {
         return $this->request;
