@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-
 namespace Enjoys;
 
 use Psr\Http\Message\ServerRequestInterface;
 
 final class ServerRequestWrapper
 {
-
     private Collection $queryData;
     private Collection $postData;
     private Collection $cookieData;
@@ -58,7 +56,7 @@ final class ServerRequestWrapper
      */
     public function getQueryData($key = null, $defaults = null)
     {
-        if ($key == null){
+        if ($key == null) {
             return $this->queryData;
         }
         return $this->queryData->get($key, $defaults);
@@ -71,7 +69,7 @@ final class ServerRequestWrapper
      */
     public function getPostData($key = null, $defaults = null)
     {
-        if ($key == null){
+        if ($key == null) {
             return $this->postData;
         }
         return $this->postData->get($key, $defaults);
@@ -84,7 +82,7 @@ final class ServerRequestWrapper
      */
     public function getCookieData($key = null, $defaults = null)
     {
-        if ($key == null){
+        if ($key == null) {
             return $this->cookieData;
         }
         return $this->cookieData->get($key, $defaults);
@@ -97,7 +95,7 @@ final class ServerRequestWrapper
      */
     public function getServerData($key = null, $defaults = null)
     {
-        if ($key == null){
+        if ($key == null) {
             return $this->serverData;
         }
         return $this->serverData->get($key, $defaults);
@@ -109,7 +107,7 @@ final class ServerRequestWrapper
      */
     public function getFilesData($key = null): FilesCollection
     {
-        if ($key == null){
+        if ($key == null) {
             return $this->filesData;
         }
         return $this->filesData->get($key);
@@ -122,7 +120,7 @@ final class ServerRequestWrapper
      */
     public function getAttributesData($key = null, $defaults = null)
     {
-        if ($key == null){
+        if ($key == null) {
             return $this->attributesData;
         }
         return $this->attributesData->get($key, $defaults);
@@ -136,8 +134,4 @@ final class ServerRequestWrapper
     {
         return $this->request;
     }
-
-
-
-
 }

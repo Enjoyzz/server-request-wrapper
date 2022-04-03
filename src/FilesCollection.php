@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Enjoys;
-
 
 final class FilesCollection
 {
@@ -12,7 +10,7 @@ final class FilesCollection
 
     public function __construct(array $data)
     {
-       $this->collection = new Collection($data);
+        $this->collection = new Collection($data);
     }
 
     public function get(string $key)
