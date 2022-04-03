@@ -2,3 +2,6 @@
 .idea/
 node_modules/
 vendor/
+/logs/
+/.tmp/
+/composer.lock
