@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Enjoys;
 
+use function array_key_exists;
+
 class Collection
 {
     private array $collection;
@@ -20,7 +22,7 @@ class Collection
 
     public function add($key, $value)
     {
-        if(!$this->has($key)){
+        if (!$this->has($key)) {
             $this->collection[$key] = $value;
         }
     }
@@ -32,6 +34,6 @@ class Collection
 
     public function has(string $key): bool
     {
-        return \array_key_exists($key, $this->collection);
+        return array_key_exists($key, $this->collection);
     }
 }
