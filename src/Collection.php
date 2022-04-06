@@ -18,6 +18,13 @@ final class Collection
         return $this->collection;
     }
 
+    public function add($key, $value)
+    {
+        if(!$this->has($key)){
+            $this->collection[$key] = $value;
+        }
+    }
+
     public function get(string $key, $defaults = null)
     {
         return $this->has($key) ? $this->collection[$key] : $defaults;

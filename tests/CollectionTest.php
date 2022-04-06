@@ -25,4 +25,13 @@ class CollectionTest extends TestCase
         $this->assertSame(null, $collection->get('invalid'));
     }
 
+    public function testAdd()
+    {
+        $collection = new Collection();
+        $collection->add('test', 'data');
+        $this->assertSame('data', $collection->get('test'));
+        $collection->add('test', 'data2');
+        $this->assertSame('data', $collection->get('test'));
+    }
+
 }
