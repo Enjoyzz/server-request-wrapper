@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enjoys;
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\UploadedFileInterface;
 
 final class ServerRequestWrapper
 {
@@ -42,7 +43,7 @@ final class ServerRequestWrapper
     private function mappingData(ServerRequestInterface $request)
     {
         $this->queryData = new Collection($request->getQueryParams());
-        $this->postData = new Collection($request->getParsedBody());
+        $this->postData = new Collection($request->getParsedBody() ?? []);
         $this->cookieData = new Collection($request->getCookieParams());
         $this->serverData = new Collection($request->getServerParams());
         $this->attributesData = new Collection($request->getAttributes());
@@ -103,9 +104,9 @@ final class ServerRequestWrapper
 
     /**
      * @param $key
-     * @return FilesCollection
+     * @return FilesCollection|UploadedFileInterface|null
      */
-    public function getFilesData($key = null): FilesCollection
+    public function getFilesData($key = null)
     {
         if ($key == null) {
             return $this->filesData;
