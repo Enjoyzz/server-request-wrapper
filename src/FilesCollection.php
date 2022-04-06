@@ -4,22 +4,14 @@ declare(strict_types=1);
 
 namespace Enjoys;
 
-final class FilesCollection
+use Psr\Http\Message\UploadedFileInterface;
+
+final class FilesCollection extends Collection
 {
-    private Collection $collection;
 
-    public function __construct(array $data)
+    public function get(string $key, $defaults = null): ?UploadedFileInterface
     {
-        $this->collection = new Collection($data);
+        return parent::get($key);
     }
 
-    public function get(string $key)
-    {
-        return $this->collection->get($key);
-    }
-
-    public function __call($name, $arguments)
-    {
-        return $this->collection->{$name}(...$arguments);
-    }
 }
