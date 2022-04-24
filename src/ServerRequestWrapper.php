@@ -7,9 +7,6 @@ namespace Enjoys;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
-/**
- * @template T as string|null
- */
 final class ServerRequestWrapper
 {
     private Collection $queryData;
@@ -58,6 +55,7 @@ final class ServerRequestWrapper
     }
 
     /**
+     * @template T of string|null
      * @param T $key
      * @param mixed|null $defaults
      * @return Collection|mixed|null
@@ -77,6 +75,7 @@ final class ServerRequestWrapper
     }
 
     /**
+     * @template T of string|null
      * @param T $key
      * @param mixed|null $defaults
      * @return Collection|mixed|null
@@ -96,6 +95,7 @@ final class ServerRequestWrapper
     }
 
     /**
+     * @template T of string|null
      * @param T $key
      * @param mixed|null $defaults
      * @return Collection|mixed|null
@@ -115,6 +115,7 @@ final class ServerRequestWrapper
     }
 
     /**
+     * @template T of string|null
      * @param T $key
      * @param mixed|null $defaults
      * @return Collection|mixed|null
@@ -134,6 +135,7 @@ final class ServerRequestWrapper
     }
 
     /**
+     * @template T of string|null
      * @param T $key
      * @return FilesCollection|UploadedFileInterface|null
      * @psalm-return (
@@ -152,6 +154,7 @@ final class ServerRequestWrapper
     }
 
     /**
+     * @template T of string|null
      * @param T $key
      * @param mixed|null $defaults
      * @return Collection|mixed|null
