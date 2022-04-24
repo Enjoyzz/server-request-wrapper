@@ -33,9 +33,10 @@ class Collection
     }
 
     /**
+     * @template T
      * @param string $key
-     * @param mixed|null $defaults
-     * @return mixed|null
+     * @param T $defaults
+     * @return mixed|T
      */
     public function get(string $key, $defaults = null)
     {
