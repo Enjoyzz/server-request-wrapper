@@ -43,7 +43,11 @@ final class ServerRequestWrapper
     private function mappingData(ServerRequestInterface $request)
     {
         $this->queryData = new Collection($request->getQueryParams());
-        $this->postData = new Collection($request->getParsedBody() ?? []);
+        $parsedBody = $request->getParsedBody();
+        if (!is_null($parsedBody)) {
+            $parsedBody = (array) $parsedBody;
+        }
+        $this->postData = new Collection($parsedBody ?? []);
         $this->cookieData = new Collection($request->getCookieParams());
         $this->serverData = new Collection($request->getServerParams());
         $this->attributesData = new Collection($request->getAttributes());
@@ -51,11 +55,18 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @param $key
-     * @param $defaults
+     * @template T of string|null
+     * @param T $key
+     * @param mixed|null $defaults
      * @return Collection|mixed|null
+     * @psalm-return (
+     *     T is null
+     *     ? Collection
+     *     : mixed|null
+     * )
+     * @psalm-suppress MixedReturnStatement
      */
-    public function getQueryData($key = null, $defaults = null)
+    public function getQueryData(string $key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->queryData;
@@ -64,11 +75,18 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @param $key
-     * @param $defaults
+     * @template T of string|null
+     * @param T $key
+     * @param mixed|null $defaults
      * @return Collection|mixed|null
+     * @psalm-return (
+     *     T is null
+     *     ? Collection
+     *     : mixed|null
+     * )
+     * @psalm-suppress MixedReturnStatement
      */
-    public function getPostData($key = null, $defaults = null)
+    public function getPostData(string $key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->postData;
@@ -77,11 +95,18 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @param $key
-     * @param $defaults
+     * @template T of string|null
+     * @param T $key
+     * @param mixed|null $defaults
      * @return Collection|mixed|null
+     * @psalm-return (
+     *     T is null
+     *     ? Collection
+     *     : mixed|null
+     * )
+     * @psalm-suppress MixedReturnStatement
      */
-    public function getCookieData($key = null, $defaults = null)
+    public function getCookieData(string $key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->cookieData;
@@ -90,11 +115,18 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @param $key
-     * @param $defaults
+     * @template T of string|null
+     * @param T $key
+     * @param mixed|null $defaults
      * @return Collection|mixed|null
+     * @psalm-return (
+     *     T is null
+     *     ? Collection
+     *     : mixed|null
+     * )
+     * @psalm-suppress MixedReturnStatement
      */
-    public function getServerData($key = null, $defaults = null)
+    public function getServerData(string $key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->serverData;
@@ -103,10 +135,17 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @param $key
+     * @template T of string|null
+     * @param T $key
      * @return FilesCollection|UploadedFileInterface|null
+     * @psalm-return (
+     *     T is null
+     *     ? FilesCollection
+     *     : UploadedFileInterface|null
+     * )
+     * @psalm-suppress MixedReturnStatement
      */
-    public function getFilesData($key = null)
+    public function getFilesData(string $key = null)
     {
         if ($key == null) {
             return $this->filesData;
@@ -115,11 +154,18 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @param $key
-     * @param $defaults
+     * @template T of string|null
+     * @param T $key
+     * @param mixed|null $defaults
      * @return Collection|mixed|null
+     * @psalm-return (
+     *     T is null
+     *     ? Collection
+     *     : mixed|null
+     * )
+     * @psalm-suppress MixedReturnStatement
      */
-    public function getAttributesData($key = null, $defaults = null)
+    public function getAttributesData(string $key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->attributesData;
