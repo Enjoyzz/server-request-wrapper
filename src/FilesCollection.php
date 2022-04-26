@@ -8,13 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Psr\Http\Message\UploadedFileInterface;
 use Webmozart\Assert\Assert;
 
-
 final class FilesCollection extends ArrayCollection
 {
-
     /**
      * @param array-key $key
-     * @return UploadedFileInterface|null
      */
     public function get($key): ?UploadedFileInterface
     {

@@ -18,18 +18,11 @@ final class ServerRequestWrapper
     private ArrayCollection $attributesData;
     private ServerRequestInterface $request;
 
-    /**
-     * @param ServerRequestInterface $request
-     */
     public function __construct(ServerRequestInterface $request)
     {
         $this->setRequest($request);
     }
 
-    /**
-     * @param ServerRequestInterface $request
-     * @return $this
-     */
     public function setRequest(ServerRequestInterface $request): ServerRequestWrapper
     {
         $this->request = $request;
@@ -37,11 +30,7 @@ final class ServerRequestWrapper
         return $this;
     }
 
-    /**
-     * @param ServerRequestInterface $request
-     * @return void
-     */
-    private function mappingData(ServerRequestInterface $request)
+    private function mappingData(ServerRequestInterface $request): void
     {
         $this->queryData = new ArrayCollection($request->getQueryParams());
         $parsedBody = $request->getParsedBody();
@@ -173,11 +162,6 @@ final class ServerRequestWrapper
         return $this->filesData->get($key);
     }
 
-
-
-    /**
-     * @return ServerRequestInterface
-     */
     public function getRequest(): ServerRequestInterface
     {
         return $this->request;
