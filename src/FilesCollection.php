@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Enjoys;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Psr\Http\Message\UploadedFileInterface;
 
-final class FilesCollection extends Collection
+final class FilesCollection extends ArrayCollection
 {
-    public function get(string $key, $defaults = null): ?UploadedFileInterface
+    /**
+     * {@inheritDoc}
+     */
+    public function get($key): ?UploadedFileInterface
     {
         return parent::get($key);
     }

@@ -18,9 +18,9 @@ class FilesCollectionTest extends TestCase
         ]);
         $this->assertSame(98, $collection->get('key1')->getSize());
         $this->assertNull($collection->get('invalid', false));
-        $this->assertSame(true, $collection->has('key1'));
+        $this->assertSame(true, $collection->containsKey('key1'));
         $this->assertSame(105, $collection->get('1')->getSize());
 
-        $this->assertCount(3, $collection->getAll());
+        $this->assertCount(3, $collection->toArray());
     }
 }
