@@ -7,6 +7,7 @@ use Enjoys\FilesCollection;
 use GuzzleHttp\Psr7\UploadedFile;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UploadedFileInterface;
+use Webmozart\Assert\InvalidArgumentException;
 
 class FilesCollectionTest extends TestCase
 {
@@ -22,7 +23,7 @@ class FilesCollectionTest extends TestCase
 
     public function testFilesCollectionInvalidType()
     {
-        $this->expectError();
+        $this->expectException(InvalidArgumentException::class);
         $fileCollection = new FilesCollection([1,2]);
         $fileCollection->get(0);
     }
