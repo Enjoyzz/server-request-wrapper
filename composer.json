@@ -28,9 +28,9 @@
     },
     "scripts": {
         "phpunit": "./vendor/bin/phpunit",
-        "psalm": "./vendor/bin/psalm",
+        "psalm": "./vendor/bin/psalm --threads=4",
         "psalm-ext": "./vendor/bin/psalm --show-info=true",
-        "infection": "XDEBUG_MODE=coverage ./vendor/bin/infection --show-mutations",
+        "infection": "XDEBUG_MODE=coverage ./vendor/bin/infection --threads=4 --show-mutations",
         "cs": "./vendor/bin/phpcs --standard=PSR12 ./src",
         "cbf": "./vendor/bin/phpcbf --standard=PSR12 ./src"
     }
