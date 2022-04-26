@@ -65,6 +65,7 @@ final class ServerRequestWrapper
      *     ? ArrayCollection
      *     : mixed|null
      * )
+     * @psalm-suppress MixedReturnStatement
      */
     public function getQueryData(string $key = null, $defaults = null)
     {
@@ -84,6 +85,7 @@ final class ServerRequestWrapper
      *     ? ArrayCollection
      *     : mixed|null
      * )
+     * @psalm-suppress MixedReturnStatement
      */
     public function getPostData(string $key = null, $defaults = null)
     {
@@ -103,6 +105,7 @@ final class ServerRequestWrapper
      *     ? ArrayCollection
      *     : mixed|null
      * )
+     * @psalm-suppress MixedReturnStatement
      */
     public function getCookieData(string $key = null, $defaults = null)
     {
@@ -122,6 +125,7 @@ final class ServerRequestWrapper
      *     ? ArrayCollection
      *     : mixed|null
      * )
+     * @psalm-suppress MixedReturnStatement
      */
     public function getServerData(string $key = null, $defaults = null)
     {
@@ -141,6 +145,7 @@ final class ServerRequestWrapper
      *     ? ArrayCollection
      *     : mixed|null
      * )
+     * @psalm-suppress MixedReturnStatement
      */
     public function getAttributesData(string $key = null, $defaults = null)
     {
