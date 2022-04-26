@@ -56,7 +56,7 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @template T of string|null
+     * @template T of array-key|null
      * @param T $key
      * @param mixed|null $defaults
      * @return ArrayCollection|mixed|null
@@ -67,7 +67,7 @@ final class ServerRequestWrapper
      * )
      * @psalm-suppress MixedReturnStatement
      */
-    public function getQueryData(string $key = null, $defaults = null)
+    public function getQueryData($key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->queryData;
@@ -76,7 +76,7 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @template T of string|null
+     * @template T of array-key|null
      * @param T $key
      * @param mixed|null $defaults
      * @return ArrayCollection|mixed|null
@@ -87,7 +87,7 @@ final class ServerRequestWrapper
      * )
      * @psalm-suppress MixedReturnStatement
      */
-    public function getPostData(string $key = null, $defaults = null)
+    public function getPostData($key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->postData;
@@ -96,10 +96,9 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @template T of string|null
+     * @template T as array-key|null
      * @param T $key
      * @param mixed|null $defaults
-     * @return ArrayCollection|mixed|null
      * @psalm-return (
      *     T is null
      *     ? ArrayCollection
@@ -107,7 +106,7 @@ final class ServerRequestWrapper
      * )
      * @psalm-suppress MixedReturnStatement
      */
-    public function getCookieData(string $key = null, $defaults = null)
+    public function getCookieData($key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->cookieData;
@@ -116,7 +115,7 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @template T of string|null
+     * @template T of array-key|null
      * @param T $key
      * @param mixed|null $defaults
      * @return ArrayCollection|mixed|null
@@ -127,7 +126,7 @@ final class ServerRequestWrapper
      * )
      * @psalm-suppress MixedReturnStatement
      */
-    public function getServerData(string $key = null, $defaults = null)
+    public function getServerData($key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->serverData;
@@ -136,7 +135,7 @@ final class ServerRequestWrapper
     }
 
     /**
-     * @template T of string|null
+     * @template T of array-key|null
      * @param T $key
      * @param mixed|null $defaults
      * @return ArrayCollection|mixed|null
@@ -147,7 +146,7 @@ final class ServerRequestWrapper
      * )
      * @psalm-suppress MixedReturnStatement
      */
-    public function getAttributesData(string $key = null, $defaults = null)
+    public function getAttributesData($key = null, $defaults = null)
     {
         if ($key == null) {
             return $this->attributesData;
@@ -157,7 +156,7 @@ final class ServerRequestWrapper
 
 
     /**
-     * @template T of string|null
+     * @template T of array-key|null
      * @param T $key
      * @return FilesCollection|UploadedFileInterface|null
      * @psalm-return (
@@ -166,7 +165,7 @@ final class ServerRequestWrapper
      *     : UploadedFileInterface|null
      * )
      */
-    public function getFilesData(string $key = null)
+    public function getFilesData($key = null)
     {
         if ($key == null) {
             return $this->filesData;

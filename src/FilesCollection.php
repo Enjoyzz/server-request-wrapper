@@ -13,7 +13,8 @@ final class FilesCollection extends ArrayCollection
 {
 
     /**
-     * {@inheritDoc}
+     * @param array-key $key
+     * @return UploadedFileInterface|null
      */
     public function get($key): ?UploadedFileInterface
     {
