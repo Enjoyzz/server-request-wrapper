@@ -84,7 +84,7 @@ interface ServerRequestWrapperInterface
      * @psalm-return (
      *     T is null
      *     ? FilesCollection
-     *     : UploadedFileInterface|null
+     *     : UploadedFileInterface|UploadedFileInterface[]|null
      * )
      */
     public function getFilesData($key = null);
